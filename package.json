@@ -1,0 +1,28 @@
+{
+  "name": "cordova-streaming",
+  "version": "1.4.0",
+  "description": "Streaming Plugin",
+  "cordova": {
+    "id": "cordova-streaming",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whebcraft/cordova-streaming.git"
+  },
+  "keywords": [
+    "streaming",
+    "radio",
+    "libaacdecoder",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Whebcraft",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/whebcraft/cordova-streaming/issues"
+  },
+  "homepage": "https://github.com/whebcraft/cordova-streaming#readme"
+}

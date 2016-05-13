@@ -69,7 +69,7 @@ public class RadioPlugin extends CordovaPlugin implements RadioListener {
 
   @Override
   public void onRadioLoading() {
-    Log.e(LOG_TAG, "RADIO STATE : LOADING...");
+    Log.e(LOG_TAG, "Stream STATE : LOADING...");
   }
 
 
@@ -87,12 +87,12 @@ public class RadioPlugin extends CordovaPlugin implements RadioListener {
 
   @Override
   public void onRadioStarted() {
-    Log.e(LOG_TAG, "RADIO STATE : PLAYING...");
+    Log.e(LOG_TAG, "Stream STATE : PLAYING...");
   }
 
   @Override
   public void onRadioStopped(boolean closedFromNotification) {
-    Log.e(LOG_TAG, "RADIO STATE : STOPPED...");
+    Log.e(LOG_TAG, "Stream STATE : STOPPED...");
 
     if (this.connectionCallbackContext != null) {
 
@@ -103,7 +103,7 @@ public class RadioPlugin extends CordovaPlugin implements RadioListener {
       if (closedFromNotification) {
         pluginResult = new PluginResult(PluginResult.Status.OK, "STOPPED-FROM-NOTIFICATION");
       } else {
-        pluginResult = new PluginResult(PluginResult.Status.OK, "STOPPED");
+        pluginResult = new PluginResult(PluginResult.Status.OK, "STOPPED-FROM-APP");
       }
       //pluginResult.setKeepCallback(false);
       pluginResult.setKeepCallback(true);

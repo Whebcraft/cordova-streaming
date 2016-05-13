@@ -12,8 +12,8 @@
     <repo>https://github.com/whebcraft/cordova-streaming</repo>
     <issue>https://github.com/whebcraft/cordova-streaming/issues</issue>
 
-    <js-module src="www/radio.js" name="RADIO">
-        <clobbers target="navigator.RADIO" />
+    <js-module src="www/radio.js" name="Stream">
+        <clobbers target="Stream" />
     </js-module>
 
 

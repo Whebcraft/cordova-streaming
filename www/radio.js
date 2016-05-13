@@ -1,4 +1,4 @@
-var RADIO = {
+var Stream = {
     initialize: function(successCallback, failureCallback) {
         cordova.exec(successCallback, failureCallback, 'RadioPlugin', 'initialize', [ ]);
     },
@@ -13,4 +13,4 @@ var RADIO = {
 
 };
 
-module.exports = RADIO;
+module.exports = Stream;

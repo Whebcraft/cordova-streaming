@@ -1,70 +1,76 @@
-# Cordova Streaming Plugin
+# Cordova Audio Streaming Plugin
 
-This plugin provides an implementation of an Android service library which uses AAC Player. Ready to use Streaming Player Service. (Background Player Service).
-
+   This plugin provides an implementation of an Android service library which uses AAC Player. 
+   Ready to use Streaming Player Service. (Background Player Service).
 
 ## Notifications
 Nice notification to control the service when it's in running in the background
-
-<img src="https://raw.githubusercontent.com/mradosta/cordova-plugin-streaming/master/screenshots/a.png" width="49%"/>
-<img src="https://raw.githubusercontent.com/mradosta/cordova-plugin-streaming/master/screenshots/b.png" width="49%"/>
-
 
 
 ## Supported Platforms
 
 - Android
 
-## Supported URLs Format
+## Supported Streaming URLs Format
 
-- http://xxxx:1232
-- http://xxxx/abc.pls
-- http://xxxx/abc.ram
-- http://xxxx/abc.wax
-- http://xxxx/abc.m4a
-- http://xxxx/abc.mp3
+- http://website.com:1232
+- http://website.com/file.pls
+- http://website.com/file.ram
+- http://website.com/file.wax
+- http://website.com/file.m4a
+- http://website.com/file.mp3
+
+### Installation
+
+This requires phonegap/cordova CLI 3.0+
+
+- Cordova CLI
+
+```sh
+cordova plugin add https://github.com/whebcraft/cordova-streaming.git
+```
 
 
-## Installation
+- Phonegap Build
 
-    https://github.com/whebcraft/cordova-streaming.git
+```sh
+    <plugin spec="https://github.com/whebcraft/cordova-streaming.git" source="git" />
+```
 
 
 ### Quick Example
 ```js
-...
-onDeviceReady: function() {
 
-  navigator.RADIO.initialize(function(s) {
+ document.addEventListener('deviceready', onDeviceReady, false);
 
-  console.log('SUCCESS navigator.RADIO.initialize');
+function onDeviceReady() {
+  Stream.initialize(Successcallback, errorFunction);
+}
 
-  if (s == 'STOPPED-FROM-NOTIFICATION') {
-      // the reproduction was stopped from the notification
-    } else if (s == 'STOPPED') {
-      // the reproduction was stopped other than the notification
-    }
-  }, function(s) {
-    console.log('ERROR navigator.RADIO.initialize');
-  });
+function Successcallback(status){
 
 }
-...
 
+```
+
+### `status`
+
+String | Description
+--------- | ------------
+`STOPPED-FROM-NOTIFICATION` | Streaming was stopped from the notification bar.
+`STOPPED-FROM-APP` | Streaming was stopped from the app.
+
+```js
 
 var url = 'http://hayatmix.net/;yayin.mp3.m3u';
-navigator.RADIO.play(function(s) {
-  console.log('SUCCESS navigator.RADIO.play');
-}, function(s) {
-  console.log('ERROR navigator.RADIO.play');
-}, url, 'My Stream Title', 'My Stream Subtitle');
+var title = 'My Stream Title';
+var subtitle = 'My Stream Subtitle';
 
+ // Start Streaming...
+ Stream.play(successFunction, errorFunction, url, title, subtitle);
 
-navigator.RADIO.stop(function(s) {
-  console.log('SUCCESS navigator.RADIO.stop');
-}, function(s) {
-  console.log('ERROR navigator.RADIO.stop');
-});
+ // Stop Streaming...
+ Stream.stop(successFunction, errorFunction);
 ```
 
 License
